@@ -1,0 +1,302 @@
+================================================================================
+SCHOOL MANAGEMENT SYSTEM - COMPLETE INSTALLATION GUIDE
+================================================================================
+
+SYSTEM REQUIREMENTS:
+- XAMPP (includes Apache, MySQL/MariaDB, PHP)
+- Web browser (Chrome, Firefox, Edge, Safari)
+- Minimum 2GB RAM
+- 500MB free disk space
+
+================================================================================
+STEP 1: INSTALL XAMPP
+================================================================================
+
+1. Download XAMPP from: https://www.apachefriends.org/
+2. Install XAMPP to C:\xampp (Windows) or /Applications/XAMPP (Mac)
+3. Run XAMPP Control Panel
+4. Start Apache and MySQL services
+
+================================================================================
+STEP 2: SETUP PROJECT FILES
+================================================================================
+
+1. Copy the entire "school-management-system" folder to:
+   - Windows: C:\xampp\htdocs\
+   - Mac/Linux: /Applications/XAMPP/htdocs/
+
+2. Your folder structure should look like:
+   C:\xampp\htdocs\school-management-system\
+   ├── assets/
+   ├── config/
+   ├── database/
+   ├── includes/
+   ├── uploads/
+   ├── index.php
+   ├── login.php
+   ├── signup.php
+   └── ... (other files)
+
+================================================================================
+STEP 3: CREATE DATABASE
+================================================================================
+
+1. Open your web browser
+2. Go to: http://localhost/phpmyadmin
+3. Click "New" in the left sidebar
+4. Database name: school_management
+5. Collation: utf8mb4_general_ci
+6. Click "Create"
+
+================================================================================
+STEP 4: IMPORT DATABASE SCHEMA
+================================================================================
+
+1. In phpMyAdmin, select "school_management" database
+2. Click "Import" tab at the top
+3. Click "Choose File"
+4. Navigate to: school-management-system/database/schema.sql
+5. Click "Go" at the bottom
+6. Wait for success message
+
+================================================================================
+STEP 5: VERIFY DATABASE TABLES
+================================================================================
+
+After import, you should see these tables:
+- users
+- students
+- exams
+- exam_results
+- fee_types
+- fee_payments
+- clubs
+- club_members
+- club_posts
+- post_comments
+- post_likes
+- notes
+- report_cards
+- news_posts
+- news_comments
+
+================================================================================
+STEP 6: ACCESS THE SYSTEM
+================================================================================
+
+1. Open your web browser
+2. Go to: http://localhost/school-management-system
+3. You should see the landing page
+
+================================================================================
+STEP 7: LOGIN WITH DEFAULT ADMIN ACCOUNT
+================================================================================
+
+Username: admin
+Password: admin123
+
+================================================================================
+USER ROLES AND PERMISSIONS
+================================================================================
+
+1. ADMIN
+   - Full system access
+   - Can manage all features
+   - Can delete any content
+
+2. HOI (Head of Institution)
+   - Manage students
+   - Manage payments
+   - Manage exams
+   - Generate report cards
+
+3. DHOI (Deputy Head of Institution)
+   - Same as HOI
+
+4. DoS Exams Teacher
+   - Manage exams
+   - Generate report cards
+   - View students
+
+5. Social Affairs Teacher
+   - Manage exams
+   - Manage clubs
+   - View students
+
+6. Finance Teacher
+   - Manage payments
+   - Manage exams
+   - View students
+
+7. Teacher
+   - Manage exams
+   - Upload notes
+   - View students
+
+8. Student
+   - View own information
+   - View exam results
+   - View fees
+   - Join clubs
+   - Download notes
+   - View report cards
+
+================================================================================
+STUDENT LOGIN SYSTEM
+================================================================================
+
+Students login differently:
+- Username: Their FULL NAME (as entered during admission)
+- Password: student.{grade}.{year}
+
+Example:
+- Student: John Doe
+- Grade: 7
+- Admission Year: 2025
+- Username: John Doe
+- Password: student.7.2025
+
+================================================================================
+FEATURES OVERVIEW
+================================================================================
+
+1. STUDENT MANAGEMENT
+   - Add new students
+   - Track admissions
+   - Promote students
+   - Graduate students
+   - Filter by grade and status
+
+2. EXAM MANAGEMENT
+   - Create exams
+   - Record results
+   - Export to CSV
+   - View by grade/subject
+
+3. FEE MANAGEMENT
+   - Record payments
+   - Track payment percentage
+   - Generate receipts
+   - Multiple payment methods
+
+4. NEWS SECTION
+   - Post text, images, videos, or links
+   - Comment on posts
+   - Delete own posts
+   - Admin can delete any post
+
+5. CLUBS
+   - Create clubs
+   - Add members
+   - Post updates
+   - Comment and like
+
+6. STUDY MATERIALS
+   - Upload notes
+   - Filter by grade/subject
+   - Download materials
+
+7. REPORT CARDS
+   - Upload report cards
+   - View/download reports
+   - Track by academic year
+
+8. ACCOUNT SETTINGS
+   - Update profile
+   - Change password
+   - Upload profile picture
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+ERROR: "Connection failed"
+SOLUTION: 
+- Make sure XAMPP MySQL is running
+- Check database name is "school_management"
+- Verify config/database.php settings
+
+ERROR: "Table doesn't exist"
+SOLUTION:
+- Re-import database/schema.sql
+- Make sure all tables were created
+
+ERROR: "Cannot upload files"
+SOLUTION:
+- Check uploads/ folder exists
+- Verify folder permissions (777 on Linux/Mac)
+
+ERROR: "Page not found"
+SOLUTION:
+- Verify project is in htdocs folder
+- Check URL: http://localhost/school-management-system
+
+ERROR: "Cannot login"
+SOLUTION:
+- Verify database was imported correctly
+- Check default admin credentials
+- For students, use full name as username
+
+================================================================================
+SECURITY NOTES
+================================================================================
+
+1. Change default admin password immediately
+2. Use strong passwords for all accounts
+3. Keep XAMPP updated
+4. Don't expose to public internet without proper security
+5. Regular database backups recommended
+
+================================================================================
+FILE UPLOAD LIMITS
+================================================================================
+
+Default PHP upload limits:
+- Max file size: 2MB
+- Max post size: 8MB
+
+To increase limits, edit php.ini:
+1. Find php.ini in XAMPP control panel
+2. Change these values:
+   upload_max_filesize = 10M
+   post_max_size = 20M
+3. Restart Apache
+
+================================================================================
+BACKUP INSTRUCTIONS
+================================================================================
+
+1. DATABASE BACKUP:
+   - Go to phpMyAdmin
+   - Select school_management database
+   - Click "Export"
+   - Choose "Quick" method
+   - Click "Go"
+   - Save the .sql file
+
+2. FILES BACKUP:
+   - Copy entire school-management-system folder
+   - Especially important: uploads/ folder
+
+================================================================================
+SUPPORT
+================================================================================
+
+For issues or questions:
+1. Check this guide first
+2. Verify all installation steps
+3. Check XAMPP error logs
+4. Review PHP error messages
+
+================================================================================
+SYSTEM INFORMATION
+================================================================================
+
+Version: 1.0
+PHP Version Required: 7.4+
+MySQL Version Required: 5.7+
+Browser Support: All modern browsers
+
+================================================================================
+END OF INSTALLATION GUIDE
+================================================================================
