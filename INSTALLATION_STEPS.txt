@@ -1,0 +1,236 @@
+============================================
+COMPLETE INSTALLATION GUIDE
+School Management System - Error-Free Version
+============================================
+
+PREREQUISITES:
+- XAMPP (or WAMP/MAMP) with PHP 7.4+ and MySQL 5.7+
+- Web browser (Chrome, Firefox, Edge recommended)
+- Text editor (optional, for configuration)
+
+============================================
+STEP 1: EXTRACT FILES
+============================================
+
+1. Extract the ZIP file to your web server directory:
+   - XAMPP: C:\xampp\htdocs\school-management-system
+   - WAMP: C:\wamp\www\school-management-system
+   - MAMP: /Applications/MAMP/htdocs/school-management-system
+
+============================================
+STEP 2: START SERVERS
+============================================
+
+1. Open XAMPP Control Panel
+2. Start Apache
+3. Start MySQL
+4. Verify both are running (green indicators)
+
+============================================
+STEP 3: CREATE DATABASE
+============================================
+
+METHOD A: Using phpMyAdmin (Recommended)
+1. Open browser and go to: http://localhost/phpmyadmin
+2. Click "New" in the left sidebar
+3. Database name: school_management
+4. Collation: utf8mb4_unicode_ci
+5. Click "Create"
+6. Click "Import" tab
+7. Choose file: database/schema.sql
+8. Click "Go" at the bottom
+9. Wait for success message
+
+METHOD B: Using MySQL Command Line
+1. Open Command Prompt/Terminal
+2. Navigate to project: cd C:\xampp\htdocs\school-management-system
+3. Run: mysql -u root -p
+4. Enter password (default is blank, just press Enter)
+5. Run: CREATE DATABASE school_management CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+6. Run: USE school_management;
+7. Run: SOURCE database/schema.sql;
+8. Run: EXIT;
+
+============================================
+STEP 4: CONFIGURE DATABASE CONNECTION
+============================================
+
+The system should work with default settings, but if needed:
+
+1. Open: config/database.php
+2. Verify these settings:
+   - DB_HOST: 127.0.0.1 (or localhost)
+   - DB_USER: root
+   - DB_PASS: (blank by default)
+   - DB_NAME: school_management
+
+============================================
+STEP 5: SET FILE PERMISSIONS
+============================================
+
+Windows (using File Explorer):
+1. Right-click 'uploads' folder
+2. Properties > Security
+3. Edit > Add > Everyone
+4. Check "Full Control"
+5. Apply > OK
+
+Linux/Mac (using Terminal):
+cd /path/to/school-management-system
+chmod -R 777 uploads/
+chmod -R 777 uploads/personal-files/
+
+============================================
+STEP 6: ACCESS THE SYSTEM
+============================================
+
+1. Open your web browser
+2. Go to: http://localhost/school-management-system
+3. You should see the login page
+
+DEFAULT LOGIN CREDENTIALS:
+- Username: admin
+- Password: admin123
+- Email: admin@school.com
+
+============================================
+STEP 7: VERIFY INSTALLATION
+============================================
+
+After logging in, test these features:
+
+1. Dashboard - Should load without errors
+2. Students - Add a test student
+3. Exams - Create a test exam
+4. Settings > Personal Files
+   - Upload a file
+   - View the file
+   - Edit notes
+   - Delete file
+5. KNEC Portal - Check the new menu item
+6. Timetable - Generate a sample timetable
+
+============================================
+TROUBLESHOOTING
+============================================
+
+ERROR: "Table 'school_management.news_posts' doesn't exist"
+SOLUTION:
+1. Go to phpMyAdmin
+2. Select school_management database
+3. Click SQL tab
+4. Copy and paste contents of: scripts/fix_all_errors.sql
+5. Click "Go"
+
+ERROR: "Cannot connect to database"
+SOLUTION:
+1. Verify MySQL is running in XAMPP
+2. Check database name is correct: school_management
+3. Check username/password in config/database.php
+
+ERROR: "Access denied"
+SOLUTION:
+1. Check MySQL user 'root' has no password
+2. Or update DB_PASS in config/database.php with your password
+
+ERROR: "Upload failed"
+SOLUTION:
+1. Check uploads folder exists
+2. Set folder permissions (see Step 5)
+3. Check PHP upload_max_filesize in php.ini (should be at least 50M)
+
+ERROR: "Personal files not visible"
+SOLUTION:
+1. Run: scripts/fix_all_errors.sql
+2. Clear browser cache
+3. Logout and login again
+
+============================================
+POST-INSTALLATION CONFIGURATION
+============================================
+
+1. Change Admin Password:
+   - Login as admin
+   - Go to Settings
+   - Update your password
+
+2. Add Users:
+   - Go to Add User
+   - Create HOI, DHOI, Teachers, etc.
+
+3. Add Students:
+   - Go to Students
+   - Click "Add New Student"
+
+4. Configure Fee Types:
+   - Go to Fees Management
+   - Add/Edit fee structures
+
+5. Setup Timetable:
+   - Go to Timetable
+   - Configure lesson hours
+   - Add teachers
+   - Generate timetable
+
+6. Add Clubs:
+   - Go to Clubs
+   - Create clubs for students
+
+============================================
+SYSTEM FEATURES
+============================================
+
+✓ User Management (Admin, HOI, DHOI, Teachers, Students)
+✓ Student Registration & Management
+✓ Exam Management & Results
+✓ Fee Management with M-Pesa integration
+✓ Club Management with Social Features
+✓ Automatic Timetable Generation
+✓ Personal Files & Notes
+✓ KNEC Portal with Website Monitoring
+✓ Report Card Generation
+✓ Dashboard with News Feed
+✓ Profile Management
+✓ Multi-role Access Control
+
+============================================
+DATABASE STRUCTURE
+============================================
+
+29 Tables Created:
+- users (user accounts)
+- role_status (admin role tracking)
+- students (student records)
+- exams, exam_subjects, exam_results
+- fee_types, fee_payments
+- clubs, club_members, club_posts, club_messages
+- post_comments, comment_media, post_likes
+- news_posts, news_comments (dashboard feed)
+- lesson_hours, timetables, timetable_teachers, teacher_timetables
+- personal_files, notes
+- projects, student_media
+- report_cards
+- knec_websites, knec_notifications
+
+============================================
+SUPPORT & DOCUMENTATION
+============================================
+
+For detailed information, see:
+- QUICK_FIX_GUIDE.md - Solutions for common errors
+- SYSTEM_UPDATE_GUIDE.md - Feature documentation
+- README.md - System overview
+
+============================================
+SUCCESS!
+============================================
+
+If you've completed all steps, your School Management System
+is now fully installed and ready to use!
+
+Login URL: http://localhost/school-management-system
+Username: admin
+Password: admin123
+
+Enjoy managing your school efficiently!
+============================================

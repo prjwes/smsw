@@ -1,0 +1,84 @@
+=================================================================
+      FIX FOR "ZipArchive" NOT FOUND ERROR IN REPORTS.PHP
+=================================================================
+
+ERROR MESSAGE:
+--------------
+Fatal error: Uncaught Error: Class "ZipArchive" not found in 
+C:\xampp\htdocs\school-management-system\reports.php:276
+
+CAUSE:
+------
+The PHP zip extension is not enabled in your XAMPP installation.
+This extension is required to generate Word (.docx) documents.
+
+SOLUTION:
+---------
+Follow these steps to enable the zip extension:
+
+1. OPEN PHP CONFIGURATION FILE
+   - Navigate to: C:\xampp\php\
+   - Open the file: php.ini (use Notepad or any text editor)
+   
+2. FIND THE ZIP EXTENSION LINE
+   - Press Ctrl+F to open Find
+   - Search for: extension=zip
+   - You should find a line that looks like: ;extension=zip
+   
+3. ENABLE THE EXTENSION
+   - Remove the semicolon (;) at the beginning
+   - Change from: ;extension=zip
+   - To: extension=zip
+   
+4. SAVE THE FILE
+   - Save php.ini and close the editor
+   
+5. RESTART APACHE
+   - Open XAMPP Control Panel
+   - Click "Stop" on Apache
+   - Wait a few seconds
+   - Click "Start" on Apache
+   
+6. VERIFY THE FIX
+   - Go back to your browser
+   - Refresh the Reports page
+   - Try generating report cards again
+
+ALTERNATIVE METHOD (If above doesn't work):
+-------------------------------------------
+1. Open XAMPP Control Panel
+2. Click "Config" button next to Apache
+3. Select "PHP (php.ini)"
+4. Search for ";extension=zip"
+5. Remove the semicolon
+6. Save and restart Apache
+
+TROUBLESHOOTING:
+----------------
+If you still see the error after following the steps:
+
+1. Make sure you edited the correct php.ini file
+   - XAMPP uses: C:\xampp\php\php.ini
+   - NOT the one in C:\Windows\
+   
+2. Verify Apache restarted successfully
+   - Check XAMPP Control Panel
+   - Apache should show green "Running" status
+   
+3. Check PHP version
+   - Create a file: test.php
+   - Add: <?php phpinfo(); ?>
+   - Open in browser to see loaded extensions
+   - Look for "zip" in the list
+
+4. If still not working, check for:
+   - File permissions on php.ini
+   - Multiple php.ini files (use the one XAMPP indicates)
+   - Typos in the extension line
+
+CONTACT SUPPORT:
+----------------
+If the problem persists after trying all steps, please contact
+your system administrator or open a support ticket at vercel.com/help
+
+=================================================================

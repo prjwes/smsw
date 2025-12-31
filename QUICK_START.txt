@@ -1,0 +1,104 @@
+==============================================
+SCHOOL MANAGEMENT SYSTEM - QUICK START GUIDE
+==============================================
+
+STEP 1: INSTALL DATABASE
+------------------------
+1. Open browser: http://localhost/phpmyadmin
+2. Create database: "school_management"
+3. Click Import tab
+4. Choose file: database/schema.sql
+5. Click GO button
+6. Wait for success message
+
+STEP 2: LOGIN
+-------------
+1. Open browser: http://localhost/school-management-system/
+2. Username: admin
+3. Password: admin123
+4. Click Login
+
+STEP 3: CHANGE PASSWORD
+-----------------------
+1. Click your name (top right)
+2. Click Settings
+3. Scroll to "Change Password"
+4. Enter current: admin123
+5. Enter new password (2x)
+6. Click Change Password
+
+STEP 4: ADD TEACHERS (For Timetable)
+-------------------------------------
+1. Click "Timetable" in sidebar
+2. Scroll to "Add Teacher & Assign Subjects"
+3. Enter teacher name
+4. Check subject-grade boxes
+5. Click "Add Teacher"
+6. Repeat for all teachers
+
+STEP 5: GENERATE TIMETABLE
+---------------------------
+1. Still in Timetable page
+2. Scroll to "Generate Timetable"
+3. Name: "Term 1 2025"
+4. Type: Secondary
+5. Check: Grade 7, 8, 9
+6. Click "Generate Timetable"
+7. Click "View" to see it
+
+STEP 6: ADD STUDENTS
+--------------------
+1. Click "Students" in sidebar
+2. Click "Add Student"
+3. Fill in details
+4. Click "Add Student"
+5. Save the generated password
+
+THAT'S IT! System is ready to use.
+
+==============================================
+COMMON ISSUES & FIXES
+==============================================
+
+ISSUE: Table doesn't exist error
+FIX: Re-import database/schema.sql in phpMyAdmin
+
+ISSUE: Can't login
+FIX: Username is "admin" not "Admin"
+     Password is "admin123"
+
+ISSUE: Personal files not working
+FIX: All fixed! View, Edit, Delete now work properly
+
+ISSUE: Timetable empty
+FIX: Add teachers first, then generate
+
+ISSUE: Images not loading
+FIX: Ensure uploads/ folder exists with subfolders
+
+==============================================
+FEATURES SUMMARY
+==============================================
+
+✓ Student Management
+✓ Exam & Results Tracking
+✓ Fee Management (M-Pesa, Cash, Bank)
+✓ Timetable Generation (Smart Algorithm)
+✓ Clubs & Activities
+✓ Personal Files (FIXED - View/Edit/Delete)
+✓ KNEC Portal with Notifications
+✓ News Feed (Social Media Style)
+✓ Reports & Analytics
+✓ Multi-role System
+
+==============================================
+SUPPORT
+==============================================
+
+Check COMPLETE_SETUP_GUIDE.md for detailed help
+All tables created automatically from schema.sql
+Personal files system fully functional
+Timetable follows CBC curriculum requirements
+
+Version: 1.0.0
+Last Updated: January 2025

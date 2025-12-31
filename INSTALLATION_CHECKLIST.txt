@@ -1,0 +1,101 @@
+SCHOOL MANAGEMENT SYSTEM - INSTALLATION CHECKLIST
+================================================
+
+[ ] STEP 1: SERVER REQUIREMENTS
+    [ ] PHP 7.4 or higher installed
+    [ ] MySQL 5.7 or higher installed
+    [ ] Apache/Nginx web server running
+    [ ] mod_rewrite enabled (Apache)
+    
+[ ] STEP 2: DATABASE SETUP
+    [ ] Create database named: school_management
+    [ ] Import file: database/schema.sql
+    [ ] Verify all tables created (25+ tables)
+    [ ] Check default admin user exists
+    
+[ ] STEP 3: FILE STRUCTURE
+    [ ] All PHP files uploaded
+    [ ] All folders present:
+        [ ] /assets/
+        [ ] /config/
+        [ ] /includes/
+        [ ] /scripts/
+        [ ] /database/
+        [ ] /uploads/
+    
+[ ] STEP 4: UPLOAD DIRECTORIES
+    Create these folders in /uploads/:
+    [ ] profiles/
+    [ ] notes/
+    [ ] personal-files/
+    [ ] news/
+    [ ] comments/
+    [ ] clubs/
+    [ ] reports/
+    [ ] club_posts/
+    
+[ ] STEP 5: PERMISSIONS
+    Set folder permissions (chmod):
+    [ ] uploads/ - 777
+    [ ] uploads/personal-files/ - 777
+    [ ] uploads/profiles/ - 777
+    [ ] uploads/notes/ - 777
+    
+[ ] STEP 6: CONFIGURATION
+    [ ] Edit config/database.php with your DB credentials
+    [ ] Set BASE_URL in config
+    [ ] Set UPLOAD_PATH in config
+    
+[ ] STEP 7: TEST LOGIN
+    [ ] Access: http://localhost/your-folder/
+    [ ] Login with:
+        Username: admin
+        Password: admin123
+    [ ] Login successful
+    
+[ ] STEP 8: VERIFY FEATURES
+    [ ] Dashboard loads correctly
+    [ ] Can navigate all menu items
+    [ ] Personal files upload works
+    [ ] KNEC Portal accessible
+    [ ] Timetable page loads
+    [ ] Settings page functional
+    
+[ ] STEP 9: SECURITY
+    [ ] Change default admin password
+    [ ] Review user permissions
+    [ ] Set secure database password
+    [ ] Check file upload restrictions
+    
+[ ] STEP 10: OPTIONAL SETUP
+    [ ] Set up cron job for KNEC updates:
+        */30 * * * * php /path/to/scripts/check_knec_updates.php
+    [ ] Configure email settings (if available)
+    [ ] Set up automated backups
+    
+[ ] STEP 11: FINAL CHECKS
+    [ ] All pages load without errors
+    [ ] No PHP warnings/notices
+    [ ] Database queries working
+    [ ] File uploads functioning
+    [ ] Theme switcher works
+    [ ] Mobile responsive design working
+    
+[ ] STEP 12: TRAINING
+    [ ] Admin user trained on all features
+    [ ] User manual provided
+    [ ] Support contact established
+    
+================================================
+INSTALLATION COMPLETE!
+================================================
+
+If any issues arise, check:
+1. PHP error logs
+2. Apache/Nginx error logs
+3. Browser console for JavaScript errors
+4. Database connection settings
+5. File permissions
+
+Support: admin@school.com
+================================================

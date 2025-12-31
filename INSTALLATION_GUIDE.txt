@@ -1,0 +1,255 @@
+================================================================================
+SCHOOL MANAGEMENT SYSTEM - COMPLETE INSTALLATION GUIDE
+================================================================================
+
+STEP 1: INSTALL XAMPP
+----------------------
+1. Download XAMPP from https://www.apachefriends.org/
+2. Install XAMPP on your computer
+3. Open XAMPP Control Panel
+4. Start "Apache" and "MySQL" services
+
+STEP 2: SETUP PROJECT FILES
+----------------------------
+1. Copy the entire "school-management-system" folder
+2. Paste it into: C:\xampp\htdocs\
+3. Final path should be: C:\xampp\htdocs\school-management-system\
+
+STEP 3: CREATE DATABASE
+------------------------
+1. Open your web browser
+2. Go to: http://localhost/phpmyadmin
+3. Click "New" in the left sidebar
+4. Database name: school_management
+5. Collation: utf8mb4_general_ci
+6. Click "Create"
+
+STEP 4: IMPORT DATABASE SCHEMA
+-------------------------------
+1. In phpMyAdmin, click on "school_management" database (left sidebar)
+2. Click the "Import" tab at the top
+3. Click "Choose File" button
+4. Navigate to: C:\xampp\htdocs\school-management-system\database\schema.sql
+5. Click "Go" button at the bottom
+6. Wait for success message: "Import has been successfully finished"
+
+STEP 5: VERIFY FOLDER PERMISSIONS
+----------------------------------
+The system will automatically create these folders when you first access it:
+- uploads/profiles/
+- uploads/notes/
+- uploads/reports/
+- uploads/clubs/
+- uploads/news/
+
+STEP 6: ACCESS THE SYSTEM
+--------------------------
+1. Open your web browser
+2. Go to: http://localhost/school-management-system
+3. You should see the landing page
+
+STEP 7: LOGIN
+-------------
+Default Admin Account:
+- Username: admin
+- Password: admin123
+
+For Students:
+- Username: Their Full Name (as entered during admission)
+- Password: student.{grade}.{year}
+  Example: student.7.2025
+
+STEP 8: CREATE YOUR FIRST ACCOUNT
+----------------------------------
+1. Click "Sign Up" on the landing page
+2. Fill in all required fields
+3. Select your role from the dropdown:
+   - Admin
+   - HOI (Head of Institution)
+   - DHOI (Deputy Head of Institution)
+   - DoS Exams Teacher
+   - Social Affairs Teacher
+   - Finance Teacher
+   - Teacher
+   - Student
+4. Click "Sign Up"
+5. Login with your new credentials
+
+================================================================================
+ROLE PERMISSIONS
+================================================================================
+
+ADMIN, HOI, DHOI:
+- Full access to all features
+- Can add/edit/delete students
+- Can manage payments
+- Can manage exams
+- Can generate report cards
+- Can post news and delete any posts
+
+DoS EXAMS TEACHER:
+- Can manage exams
+- Can generate report cards
+- Can post news
+
+SOCIAL AFFAIRS TEACHER:
+- Can manage clubs and activities
+- Can manage exams
+- Can post news
+
+FINANCE TEACHER:
+- Can manage fee payments
+- Can view student financial records
+- Can manage exams
+- Can post news
+
+TEACHER:
+- Can manage exams
+- Can upload study materials
+- Can post news
+- Can view student information
+
+STUDENT:
+- Can view their own information only
+- Can view exam results
+- Can view fee payment status
+- Can join clubs
+- Can download study materials
+- Can comment on news posts
+- Login with full name and default password
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+ERROR: "Table doesn't exist"
+SOLUTION: Make sure you imported the schema.sql file correctly in Step 4
+
+ERROR: "Connection failed"
+SOLUTION: 
+- Check if MySQL service is running in XAMPP Control Panel
+- Verify database name is "school_management" (no spaces)
+- Check config/database.php for correct credentials
+
+ERROR: "Cannot upload files"
+SOLUTION:
+- Check if uploads folder exists
+- Verify folder permissions (should be writable)
+- The system creates folders automatically on first run
+
+ERROR: "Page not found"
+SOLUTION:
+- Verify project is in C:\xampp\htdocs\school-management-system\
+- Access via http://localhost/school-management-system (not file://)
+
+ERROR: "Student login not working"
+SOLUTION:
+- Students must use their FULL NAME as username
+- Password format: student.{grade}.{year}
+- Example: If student is in grade 7, admitted in 2025: student.7.2025
+
+================================================================================
+FEATURES OVERVIEW
+================================================================================
+
+1. DASHBOARD
+   - View statistics
+   - Post news updates (text, images, videos, links)
+   - Comment on news posts
+   - Delete your own posts or all posts (Admin only)
+
+2. STUDENT MANAGEMENT
+   - Add new students
+   - View all students by grade
+   - Promote students to next grade
+   - Mark students as graduated
+   - Track admission dates
+
+3. EXAM MANAGEMENT
+   - Create exams for different subjects
+   - Enter student marks
+   - View exam results
+   - Export results to Excel/CSV
+   - Sort and filter results
+
+4. FEE MANAGEMENT
+   - Define fee types
+   - Record payments
+   - Track payment percentages
+   - Generate receipts
+   - Filter by student/grade
+
+5. CLUBS
+   - Create and manage clubs
+   - Add club members
+   - Post club updates
+   - Comment and like posts
+
+6. STUDY MATERIALS
+   - Upload notes by subject and grade
+   - Download study materials
+   - Organize by grade level
+
+7. REPORT CARDS
+   - Generate report cards
+   - Upload from Excel
+   - View student report history
+
+8. ACCOUNT SETTINGS
+   - Update profile information
+   - Change password
+   - Upload profile picture
+   - Manage account details
+
+================================================================================
+SUPPORT
+================================================================================
+
+For issues or questions:
+1. Check this guide first
+2. Verify all installation steps were completed
+3. Check XAMPP services are running
+4. Verify database was imported correctly
+
+================================================================================
+SYSTEM REQUIREMENTS
+================================================================================
+
+- Windows 7/8/10/11 or macOS or Linux
+- XAMPP (Apache + MySQL/MariaDB + PHP)
+- PHP 7.4 or higher
+- MySQL 5.7 or higher / MariaDB 10.3 or higher
+- Modern web browser (Chrome, Firefox, Edge, Safari)
+- Minimum 2GB RAM
+- 500MB free disk space
+
+================================================================================
+SECURITY NOTES
+================================================================================
+
+1. Change the default admin password immediately after first login
+2. Use strong passwords for all accounts
+3. Regularly backup your database
+4. Keep XAMPP updated
+5. Don't expose your local server to the internet without proper security
+
+================================================================================
+BACKUP INSTRUCTIONS
+================================================================================
+
+To backup your data:
+1. Go to http://localhost/phpmyadmin
+2. Click "school_management" database
+3. Click "Export" tab
+4. Select "Quick" export method
+5. Format: SQL
+6. Click "Go"
+7. Save the .sql file in a safe location
+
+To restore from backup:
+1. Follow STEP 3 to create a new database
+2. Follow STEP 4 but select your backup .sql file instead
+
+================================================================================
+END OF INSTALLATION GUIDE
+================================================================================

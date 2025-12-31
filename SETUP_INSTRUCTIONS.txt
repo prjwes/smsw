@@ -1,0 +1,133 @@
+========================================
+SCHOOL MANAGEMENT SYSTEM - SETUP GUIDE
+========================================
+
+STEP 1: INSTALL XAMPP
+---------------------
+1. Download XAMPP from https://www.apachefriends.org/
+2. Install XAMPP (default location: C:\xampp)
+3. Start XAMPP Control Panel
+
+STEP 2: START SERVICES
+-----------------------
+1. In XAMPP Control Panel, click "Start" for Apache
+2. Click "Start" for MySQL
+3. Wait until both show "Running" status (green)
+
+STEP 3: COPY PROJECT FILES
+---------------------------
+1. Copy the entire "school-management-system" folder
+2. Paste it into: C:\xampp\htdocs\
+3. Final path should be: C:\xampp\htdocs\school-management-system\
+
+STEP 4: CREATE DATABASE
+------------------------
+1. Open your browser
+2. Go to: http://localhost/phpmyadmin
+3. Click "New" in the left sidebar
+4. Database name: school_management
+5. Collation: utf8mb4_general_ci
+6. Click "Create"
+
+STEP 5: IMPORT DATABASE SCHEMA
+-------------------------------
+1. In phpMyAdmin, click on "school_management" database (left sidebar)
+2. Click the "Import" tab at the top
+3. Click "Choose File"
+4. Navigate to: C:\xampp\htdocs\school-management-system\database\schema.sql
+5. Click "Go" at the bottom
+6. Wait for success message: "Import has been successfully finished"
+
+STEP 6: VERIFY TABLES
+----------------------
+After import, you should see these tables in the left sidebar:
+- users
+- students
+- exams
+- exam_results
+- fee_types
+- fee_payments
+- clubs
+- club_members
+- club_posts
+- post_comments
+- post_likes
+- notes
+- report_cards
+- news_posts
+- news_comments
+
+STEP 7: ACCESS THE SYSTEM
+--------------------------
+1. Open your browser
+2. Go to: http://localhost/school-management-system
+3. You should see the landing page
+
+STEP 8: LOGIN
+--------------
+Default Admin Account:
+- Username: admin
+- Password: admin123
+
+STEP 9: CREATE UPLOAD FOLDERS (AUTOMATIC)
+------------------------------------------
+The system will automatically create these folders when you first access it:
+- uploads/profiles/
+- uploads/notes/
+- uploads/reports/
+- uploads/clubs/
+- uploads/news/
+
+TROUBLESHOOTING
+---------------
+
+Problem: "Connection failed" error
+Solution: 
+- Make sure MySQL is running in XAMPP Control Panel
+- Check if port 3306 is not blocked by firewall
+- Try restarting MySQL service
+
+Problem: "Table doesn't exist" error
+Solution:
+- Go back to STEP 5 and re-import the schema.sql file
+- Make sure you selected the correct database before importing
+
+Problem: "Access denied" error
+Solution:
+- Check config/database.php file
+- Default settings should be:
+  DB_HOST: 127.0.0.1
+  DB_USER: root
+  DB_PASS: (empty)
+  DB_NAME: school_management
+
+Problem: Images not uploading
+Solution:
+- Check if uploads folder exists in project root
+- Right-click uploads folder > Properties > Security
+- Make sure "Users" has "Full control" permissions
+
+SYSTEM ROLES & PERMISSIONS
+---------------------------
+
+1. Admin - Full system access
+2. HOI (Head of Institution) - Manage students, exams, fees, reports
+3. DHOI (Deputy HOI) - Same as HOI
+4. DoS Exams Teacher - Manage exams and generate report cards
+5. Social Affairs Teacher - Manage clubs and activities
+6. Finance Teacher - Manage fee payments
+7. Teacher - View students, manage exams, post news
+8. Student - View own details, grades, fees, join clubs
+
+STUDENT LOGIN
+-------------
+Students login using:
+- Full Name: (as entered during admission)
+- Password: student.{grade}.{year}
+  Example: student.7.2025 (for grade 7 student admitted in 2025)
+
+SUPPORT
+-------
+For issues or questions, contact your system administrator.
+
+========================================
